@@ -8,32 +8,15 @@
 
     <div class="row">
 
-      <div class="col-md-4" (mouseenter)="onCardHover(1)" (mouseleave) ="onCardHoverEnd(1)">
-        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==1 && hovered==true}">
-          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
+      <div *ngFor="let category of categorylist" class="col-md-4" (mouseenter)="onCardHover(category._id)"
+                    (mouseleave) ="onCardHoverEnd(category._id)">
+        <div class= "card mb-4 box-shadow" [ngClass]="{'shadow-lg': id==category._id && hovered==true}">
+          <img class="card-img-top" src="{{category.image}}" alt="Category Icon">
           <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text">{{category.name}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4" (mouseenter)="onCardHover(2)" (mouseleave) ="onCardHoverEnd(2)">
-        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==2 && hovered==true}">
-          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" (mouseenter)="onCardHover(3)" (mouseleave) ="onCardHoverEnd(3)">
-        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==3 && hovered==true}">
-          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-
-
 
     </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiClientService } from '../api-client.service';
+import { Category } from '../Models/category';
 
 @Component({
   selector: 'app-categories',
@@ -9,11 +11,15 @@ export class CategoriesComponent implements OnInit {
 
   id : number =3;
   hovered : boolean =false;
+  categorylist: Category[];
 
-  constructor() { }
+
+  constructor(private apiclientservice: ApiClientService) {
+
+  }
 
   ngOnInit() {
-
+    this.getCategories();
   }
 
   onCardHover(id:number){
@@ -26,4 +32,14 @@ export class CategoriesComponent implements OnInit {
     this.id=id;
 
   }
+
+  getCategories() : void {
+    this.apiclientservice.getCategories()
+      .subscribe((categories : {"data":Category[]}) =>{
+        console.log(categories);
+        this.categorylist = categories.data;
+      }
+    );
+  }
+
 }
