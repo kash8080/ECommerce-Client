@@ -1,0 +1,41 @@
+<div class="jumbotron text-center">
+  <h1 class="jumbotron-heading">Welcome to my website</h1>
+  <p class="lead text-muted">Check out the categories below to shop and have a good day!</p>
+</div>
+
+<div >
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4" (mouseenter)="onCardHover(1)" (mouseleave) ="onCardHoverEnd(1)">
+        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==1 && hovered==true}">
+          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" (mouseenter)="onCardHover(2)" (mouseleave) ="onCardHoverEnd(2)">
+        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==2 && hovered==true}">
+          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" (mouseenter)="onCardHover(3)" (mouseleave) ="onCardHoverEnd(3)">
+        <div class= "card mb-4 box-shadow " [ngClass]="{'shadow-lg': id==3 && hovered==true}">
+          <img class="card-img-top" src="assets/car.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
