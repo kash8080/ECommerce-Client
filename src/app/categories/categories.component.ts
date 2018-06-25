@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../api-client.service';
 import { Category } from '../Models/category';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-categories',
@@ -9,12 +10,12 @@ import { Category } from '../Models/category';
 })
 export class CategoriesComponent implements OnInit {
 
-  id : number =3;
+  id : string ;
   hovered : boolean =false;
   categorylist: Category[];
 
 
-  constructor(private apiclientservice: ApiClientService) {
+  constructor(private apiclientservice: ApiClientService,private router: Router) {
 
   }
 
@@ -22,15 +23,19 @@ export class CategoriesComponent implements OnInit {
     this.getCategories();
   }
 
-  onCardHover(id:number){
+  onCardHover(id:string){
     this.hovered=true;
     this.id=id;
   }
 
-  onCardHoverEnd(id:number){
+  onCardHoverEnd(id:string){
     this.hovered=false;
     this.id=id;
 
+  }
+  onCategoryClicked(id : string){
+    console.log('clicked= id = '+id);
+    this.router.navigate(['/categories/'+id])
   }
 
   getCategories() : void {

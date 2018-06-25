@@ -1,0 +1,9 @@
+.container{
+  padding: 20pt;
+}
+p{
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+}

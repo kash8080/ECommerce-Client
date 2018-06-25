@@ -1,3 +1,24 @@
-<p>
-  products list in category id = {{categoryid}}
-</p>
+<div class="container" >
+
+  <div class="row">
+
+    <div *ngFor="let product of productlist" class="col-md-2" (mouseenter)="onCardHover(product._id)" (click)="onProductClicked(product._id)"
+                  (mouseleave) ="onCardHoverEnd(product._id)">
+      <div class= "card mb-4 box-shadow" [ngClass]="{'shadow-lg': id==product._id && hovered==true}">
+        <div class="card-img-top squaree" [ngStyle]="{'background-image' : 'url('+product.image+')'}">
+
+        </div>
+        <!--
+        <img class="card-img-top" src="{{category.image}}" alt="Category Icon">
+      -->
+        <div class="card-body">
+          <p class="card-text">{{product.name}}</p>
+          <p class="card-text">{{product.description}}</p>
+          <p class="card-text">{{product.price}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

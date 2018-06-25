@@ -8,7 +8,7 @@
 
     <div class="row">
 
-      <div *ngFor="let category of categorylist" class="col-md-2" (mouseenter)="onCardHover(category._id)"
+      <div *ngFor="let category of categorylist" class="col-md-4" (mouseenter)="onCardHover(category._id)" (click)="onCategoryClicked(category._id)"
                     (mouseleave) ="onCardHoverEnd(category._id)">
         <div class= "card mb-4 box-shadow" [ngClass]="{'shadow-lg': id==category._id && hovered==true}">
           <div class="card-img-top squaree" [ngStyle]="{'background-image' : 'url('+category.image+')'}">

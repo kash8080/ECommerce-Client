@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo: '/categories' },
   { path: 'categories', component: CategoriesComponent    },
   { path: 'categories/:id', component: ProductsComponent    },
+  { path: 'product/:id', component: ProductdetailComponent    },
   { path: 'cart', component: CartComponent    },
   { path: 'orders', component: OrdersComponent    },
   { path: '**', component: PagenotfoundComponent    }
