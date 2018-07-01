@@ -7,9 +7,11 @@ import { ProductsComponent } from './products/products.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', pathMatch:'full', redirectTo: '/categories' },
+  { path: '', pathMatch:'full', redirectTo: '/home' },
+  { path: 'home', component: HomeComponent    },
   { path: 'categories', component: CategoriesComponent    },
   { path: 'categories/:id', component: ProductsComponent    },
   { path: 'product/:id', component: ProductdetailComponent    },
@@ -25,6 +27,6 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
   static components = [
-    CategoriesComponent,PagenotfoundComponent,ProductsComponent,ProductdetailComponent,CartComponent,OrdersComponent
+    CategoriesComponent,PagenotfoundComponent,ProductsComponent,ProductdetailComponent,CartComponent,OrdersComponent,HomeComponent
   ];
 }

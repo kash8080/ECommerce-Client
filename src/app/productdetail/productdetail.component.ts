@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { ApiClientService } from '../api-client.service';
 import { Router } from "@angular/router";
 import { Product } from '../Models/Product';
@@ -10,9 +10,6 @@ import { Product } from '../Models/Product';
   styleUrls: ['./productdetail.component.css']
 })
 export class ProductdetailComponent implements OnInit {
-
-  productlist: Product[];
-
 
   constructor(private apiclientservice: ApiClientService,private router: Router) {
 

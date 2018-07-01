@@ -1,0 +1,16 @@
+.categoryHeader{
+  background: white;
+  text-align: center;
+  max-width: 150px;
+  padding: 10px;
+}
+.categoryHeader:hover{
+  background: var(--button_hover_color);
+}
+.selected{
+  background: var(--accent_color);
+  color: white;
+}
+.categoryHeader.selected : hover{
+  background: inherit;
+}

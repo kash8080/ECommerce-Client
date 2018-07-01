@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,SimpleChange } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import { ApiClientService } from '../api-client.service';
 import { Router } from "@angular/router";
 import { Product } from '../Models/Product';
+import { Category } from '../Models/Category';
 
 @Component({
   selector: 'app-products',
@@ -11,24 +12,40 @@ import { Product } from '../Models/Product';
 })
 export class ProductsComponent implements OnInit {
 
+  //@Input() category: Category;
+  private mycategory: Category;
+  loading :boolean=false;
+
   id: string;
   hovered : boolean =false;
 
-  categoryid : string;
   productlist: Product[];
+
+  @Input() set category(value: Category) {
+     this.mycategory = value;
+     if(value!=null){
+       this.getProducts(this.mycategory._id);
+     }
+  }
+  get category(): Category {
+      return this.mycategory;
+  }
+  ngOnChanges(changes: SimpleChange) {
+  }
+
 
   constructor(private route: ActivatedRoute,private apiclientservice: ApiClientService,private router: Router) {
       this.route.params.subscribe(
          params =>{
            console.log(params);
-           this.categoryid=params.id;
+           //this.categoryid=params.id;
          }
        );
   }
 
 
   ngOnInit() {
-    this.getProducts(this.categoryid);
+    //this.getProducts(this.category._id);
   }
 
 
@@ -43,15 +60,16 @@ export class ProductsComponent implements OnInit {
 
   }
   onProductClicked(id : string){
-    console.log('clicked= id = '+id);
     this.router.navigate(['/product/'+id])
   }
 
   getProducts(id:string) : void {
+    this.loading=true;
     this.apiclientservice.getProducts(id)
       .subscribe((products : {"data":Product[]}) =>{
         console.log(products);
         this.productlist = products.data;
+        this.loading=false;
       }
     );
   }

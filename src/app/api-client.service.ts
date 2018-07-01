@@ -10,8 +10,11 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiClientService {
-  categoriesUrl = 'https://ecomm-rahul.herokuapp.com/api/categories';
-  productsUrl = 'https://ecomm-rahul.herokuapp.com/api/products/';
+  baseUrl="https://ecomm-rahul.herokuapp.com/";
+  //baseUrl="localhost/4000/";
+
+  categoriesUrl = this.baseUrl+'api/categories';
+  productsUrl = this.baseUrl+'api/products/';
 
   constructor(private http: HttpClient) { }
 

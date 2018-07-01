@@ -1,8 +1,14 @@
 <div class="container" >
 
-  <div class="row">
 
-    <div *ngFor="let product of productlist" class="col-md-2" (mouseenter)="onCardHover(product._id)" (click)="onProductClicked(product._id)"
+    <div *ngIf="loading">
+      <h2>
+        Loading products for {{mycategory.name}}
+      </h2>
+    </div>
+
+    <div class="row">
+    <div *ngFor="let product of productlist" class="col-md-3" (mouseenter)="onCardHover(product._id)" (click)="onProductClicked(product._id)"
                   (mouseleave) ="onCardHoverEnd(product._id)">
       <div class= "card mb-4 box-shadow" [ngClass]="{'shadow-lg': id==product._id && hovered==true}">
         <div class="card-img-top squaree" [ngStyle]="{'background-image' : 'url('+product.image+')'}">

@@ -1,20 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+  --primary_color:#343a40;
+  --accent_color:green;
+  --background_color:#f0f0f0;
+  --button_hover_color:#dddddd;
+
+}
+body{
+  background-color: var(--background_color);
+}
 .logo {
 	height: 50px;
 	margin-left: 20px;
 	margin-right: 20px;
-}
-
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 60px; /* Set the fixed height of the footer here */
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f0f0f0;
-}
-
-.div{
-	background: #ffffff;
 }
 
 .squaree {

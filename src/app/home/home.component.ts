@@ -4,16 +4,14 @@ import { Category } from '../Models/category';
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
-  id : string ;
-  hovered : boolean =false;
+  selectedCategory : Category;
   categorylist: Category[];
-
 
   constructor(private apiclientservice: ApiClientService,private router: Router) {
 
@@ -23,18 +21,9 @@ export class CategoriesComponent implements OnInit {
     this.getCategories();
   }
 
-  onCardHover(id:string){
-    this.hovered=true;
-    this.id=id;
-  }
-
-  onCardHoverEnd(id:string){
-    this.hovered=false;
-    this.id=id;
-
-  }
-  onCategoryClicked(id : string){
-    this.router.navigate(['/categories/'+id])
+  onCategoryClicked(cat : Category){
+    this.selectedCategory=cat;
+    //this.router.navigate(['/categories/'+id])
   }
 
   getCategories() : void {
