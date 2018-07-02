@@ -13,7 +13,7 @@ import { Category } from '../Models/Category';
 export class ProductsComponent implements OnInit {
 
   //@Input() category: Category;
-  private mycategory: Category;
+  private mycategory: string;
   loading :boolean=false;
 
   id: string;
@@ -21,13 +21,13 @@ export class ProductsComponent implements OnInit {
 
   productlist: Product[];
 
-  @Input() set category(value: Category) {
+  @Input() set category(value: string) {
      this.mycategory = value;
      if(value!=null){
-       this.getProducts(this.mycategory._id);
+       this.getProducts(this.mycategory);
      }
   }
-  get category(): Category {
+  get category(): string {
       return this.mycategory;
   }
   ngOnChanges(changes: SimpleChange) {

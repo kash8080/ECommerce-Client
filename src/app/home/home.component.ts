@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../api-client.service';
 import { Category } from '../Models/category';
 import { Router } from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,20 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  selectedCategory : Category;
+  selectedCategory : string;
   categorylist: Category[];
 
-  constructor(private apiclientservice: ApiClientService,private router: Router) {
-
+  constructor(private route: ActivatedRoute,private apiclientservice: ApiClientService,private router: Router) {
+    //use queryParamMap instead
+    this.route.queryParamMap.subscribe(
+       params =>{
+         this.selectedCategory=params.get('category');
+         console.log(params);
+         console.log('category id ='+this.selectedCategory);
+        //this.param1 = params['param1'];
+         //this.param2 = params['param2'];
+       }
+     );
   }
 
   ngOnInit() {
@@ -22,8 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
   onCategoryClicked(cat : Category){
-    this.selectedCategory=cat;
-    //this.router.navigate(['/categories/'+id])
+    //this.selectedCategory=cat;
+    this.router.navigate(['/home'],{queryParams : {category:cat._id}})
   }
 
   getCategories() : void {

@@ -1,6 +1,6 @@
 
 <div class="row justify-content-center bg-white">
-  <div class="col categoryHeader" [ngClass]="{'selected': selectedCategory!=null && selectedCategory._id === category._id}" *ngFor="let category of categorylist" (click)="onCategoryClicked(category)">{{category.name}}</div>
+  <div class="col categoryHeader" [ngClass]="{'selected': selectedCategory!=null && selectedCategory === category._id}" *ngFor="let category of categorylist" (click)="onCategoryClicked(category)">{{category.name}}</div>
 </div>
 
 
